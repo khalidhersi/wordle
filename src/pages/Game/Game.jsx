@@ -1,51 +1,50 @@
 import React from "react";
-import Tile from "../../components/Tile/Tile";
+import KeyBoard from "../../components/KeyBoard/KeyBoard";
+import TileRow from "../../components/TileRow/TileRow";
 import "./Game.scss";
+
+const letter = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 const Game = () => {
   return (
-    <div className="gameboard">
-      <div className="gameboard__row">
-        <div className="gameboard__tile">A</div>
-        <div className="gameboard__tile --correct-place">B</div>
-        <div className="gameboard__tile --incorrect-letter">F</div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
+    <div className="game">
+      <div className="gameboard">
+        <TileRow />
+        <TileRow />
+        <TileRow />
+        <TileRow />
+        <TileRow />
+        <TileRow />
       </div>
-      <div className="gameboard__row">
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile --correct-letter">E</div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-      </div>
-      <div className="gameboard__row">
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-      </div>
-      <div className="gameboard__row">
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-      </div>
-      <div className="gameboard__row">
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-      </div>
-      <div className="gameboard__row">
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
-        <div className="gameboard__tile"></div>
+      <div className="game__keyboard">
+        <KeyBoard />
       </div>
     </div>
   );
