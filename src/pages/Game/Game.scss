@@ -38,3 +38,26 @@
         background-color: $color-grey;   
     }
 }
+
+@media screen and (max-width: 991px) {
+    
+    .gameboard{
+        margin-top: 8%;
+        gap: 0.5rem;
+
+        &__row{
+            gap: 0.5rem;
+        }
+        &__tile{
+            height: 13rem;
+            width: 13rem;
+            font-size: 10rem;
+            line-height: 10.5rem;
+            border: 7px solid rgba(124, 124, 124, 0.399);
+        }
+    }    
+
+    .keyboard{
+        margin-top: 10%;
+    }
+}
