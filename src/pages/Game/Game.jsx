@@ -1,11 +1,50 @@
 import React from 'react'
-import Nav from '../../components/Nav/Nav';
+import Tile from '../../components/Tile/Tile';
 import "./Game.scss";
 
 const Game = () => {
   return (
-    <div className='game'>
-        <Nav />
+    <div className='gameboard'>
+        <div className="gameboard__col">
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            </div>
+        <div className="gameboard__col">
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            </div>
+        <div className="gameboard__col">
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            </div>
+        <div className="gameboard__col">
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            </div>
+        <div className="gameboard__col">
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            <Tile className="gameboard__tile"/>
+            </div>
     </div>
   )
 }

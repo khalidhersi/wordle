@@ -9,6 +9,8 @@
         justify-content: space-between;
         &__text{
             font-size: 5rem;
+            position: relative;
+            left: 1.5rem;
         }
 
         &__icon{
@@ -29,6 +31,7 @@
     }
 
     &__underline{
+        margin-top: 0.5rem;
         border-bottom: 1px solid rgba(128, 128, 128, 0.342);
     }
 }
