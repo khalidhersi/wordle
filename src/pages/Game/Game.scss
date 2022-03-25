@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables";
+
 .gameboard{
     margin-top: 7rem;
     display: flex;
@@ -13,6 +15,6 @@
         gap: 0.5rem;
     }
     &__tile{
-        
+ 
     }
 }
