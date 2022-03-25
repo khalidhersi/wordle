@@ -2,6 +2,13 @@ import React from "react";
 import "./KeyBoard.scss";
 
 const KeyBoard = () => {
+
+    const handleClick = (event) => {
+        console.log(event)
+    }
+
+
+
   return (
     <div className="keyboard">
       <div className="keyboard__row">
@@ -37,7 +44,7 @@ const KeyBoard = () => {
         <button className="key">B</button>
         <button className="key">N</button>
         <button className="key">M</button>
-        <button className="key backspace"><i class="fa-solid fa-delete-left"></i></button>
+        <button className="key backspace"><i className="fa-solid fa-delete-left"></i></button>
       </div>
     </div>
   );
