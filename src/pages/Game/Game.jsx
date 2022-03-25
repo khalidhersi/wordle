@@ -1,6 +1,6 @@
 import React from "react";
 import KeyBoard from "../../components/KeyBoard/KeyBoard";
-import TileRow from "../../components/TileRow/TileRow";
+import Tile from "../../components/Tiles/Tiles";
 import "./Game.scss";
 
 const letters = [
@@ -37,12 +37,7 @@ const Game = () => {
   return (
     <div className="game">
       <div className="gameboard">
-        <TileRow />
-        <TileRow />
-        <TileRow />
-        <TileRow />
-        <TileRow />
-        <TileRow />
+        <Tile />
       </div>
       <div className="game__keyboard">
         <KeyBoard />
