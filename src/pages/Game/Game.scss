@@ -3,18 +3,38 @@
 .gameboard{
     margin-top: 7rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
 
-    &__col{
+    &__row{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
     }
     &__tile{
- 
+    height: 10rem;
+    width: 10rem;
+    border: 2px solid rgba(124, 124, 124, 0.199);
+    font-size: 8rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 8.6rem;
+    display: flex;
+    justify-content: center;
+    }
+    .--correct-place{
+        background-color: $color-green;   
+    }
+
+    .--correct-letter{
+        background-color: $color-yellow;   
+    }
+
+    .--incorrect-letter{
+        background-color: $color-grey;   
     }
 }
