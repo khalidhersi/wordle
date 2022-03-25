@@ -3,7 +3,7 @@ import KeyBoard from "../../components/KeyBoard/KeyBoard";
 import TileRow from "../../components/TileRow/TileRow";
 import "./Game.scss";
 
-const letter = [
+const letters = [
   "a",
   "b",
   "c",
@@ -31,6 +31,7 @@ const letter = [
   "y",
   "z",
 ];
+console.log(letters);
 
 const Game = () => {
   return (
