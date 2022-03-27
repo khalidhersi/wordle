@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import KeyBoard from "../../components/KeyBoard/KeyBoard";
 import Tile from "../../components/Tiles/Tiles";
+import words from "../../assets/data/words.json";
 import "./Game.scss";
 
 const letters = [
@@ -53,15 +54,15 @@ const Game = () => {
         }if(counter === 3){
             setText3(event.target.innerHTML)
             setCounter(counter + 1);
-            }
+        }
         if(counter === 4){
             setText4(event.target.innerHTML)
             setCounter(counter + 1);
-            }
+        }
         if(counter === 5){
             setText5(event.target.innerHTML)
             setCounter(counter + 1);
-            }    
+        }    
     }
 
 
@@ -69,7 +70,7 @@ const Game = () => {
   return (
     <div className="game">
       <div className="gameboard">
-        <Tile text1={text1} text2={text2} text3={text3} text4={text4} text5={text5}/>
+        <Tile word={words.word} text1={text1} text2={text2} text3={text3} text4={text4} text5={text5}/>
       </div>
       <div className="game__keyboard">
         <KeyBoard handleClick={handleClick} />
