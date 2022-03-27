@@ -1,22 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Tiles.scss";
 
-const Tiles = () => {
+const Tiles = (props) => {
+
+  const {text1 ,text2, text3, text4, text5} = props
+
   return (
     <div className="gameboard">
       <div className="gameboard__row">
-        <div id="1" className="gameboard__tile" >A</div>
-        <div id="2" className="gameboard__tile  --correct-place">B</div>
-        <div id="3" className="gameboard__tile  --incorrect-letter">C</div>
-        <div id="4" className="gameboard__tile  --correct-letter">D</div>
-        <div id="5" className="gameboard__tile" >E</div>
+        <div id="1" className="gameboard__tile" >{text1}</div>
+        <div id="2" className="gameboard__tile  --correct-place">{text2}</div>
+        <div id="3" className="gameboard__tile  --incorrect-letter">{text3}</div>
+        <div id="4" className="gameboard__tile  --correct-letter">{text4}</div>
+        <div id="5" className="gameboard__tile">{text5}</div>
       </div>
       <div className="gameboard__row">
         <div id="6" className="gameboard__tile" >A</div>
         <div id="7" className="gameboard__tile  --correct-place">B</div>
         <div id="8" className="gameboard__tile  --incorrect-letter">C</div>
         <div id="9" className="gameboard__tile  --correct-letter">D</div>
-        <div id="10" className="gameboard__tile" >E</div>
+        <div id="10" className="gameboard__tile">E</div>
       </div>
       <div className="gameboard__row">
         <div id="11" className="gameboard__tile" >A</div>

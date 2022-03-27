@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import "./KeyBoard.scss";
 
-const KeyBoard = () => {
+const KeyBoard = (props) => {
     // const [isActive, setIsActive] = useState(false);
+    const {handleClick} = props;
+   
 
-    const handleClick = (event) => {
-        event.target.className = "key key--active"
-        // if(event.key === "q"){
-        //     setIsActive(true)
-        // } else setIsActive(false)
-    }
-
-    
-
+//     handleClick{
+//  // if(event.key === "q"){
+//         //     setIsActive(true)
+//         // } else setIsActive(false)
+//     }
     // const handleClick1 = (event) => {
     //     if(event.key === "q"){
     //         console.log("hey")
@@ -27,7 +25,7 @@ const KeyBoard = () => {
     <div className="keyboard">
       <div className="keyboard__row">
        <button id="q" onClick={handleClick} className={`key`}>Q</button> 
-        <button id="w" className="key">W</button>
+        <button id="w"onClick={handleClick} className="key">W</button>
         <button id="e" onClick={handleClick} className="key">E</button>
         <button id="r" onClick={handleClick} className="key">R</button>
         <button id="t" onClick={handleClick} className="key">T</button>
