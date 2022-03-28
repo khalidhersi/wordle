@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import KeyBoard from "../../components/KeyBoard/KeyBoard";
+import Nav from "../../components/Nav/Nav";
 import Tile from "../../components/Tiles/Tiles";
 import "./Game.scss";
 
@@ -548,6 +549,7 @@ const Game = (props) => {
 
   return (
     <div className="game">
+         <Nav />
       <div className="gameboard">
         <Tile
           text1={text1}
