@@ -1,40 +1,39 @@
 @import "../../assets/styles/variables";
 
-.keyboard{
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 5rem;
+  &__row {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
-    margin-top: 2rem;
-    &__row{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.8rem;
-    }
+  }
 }
 
-.key{
-    width: 7rem;
-    height: 7rem;
-    font-weight: bold;
-    font-size: 3rem;
+.key {
+  width: 7rem;
+  height: 7rem;
+  font-weight: bold;
+  font-size: 3rem;
 
-    &:active{
-        background-color: rgb(173, 173, 173);
-    }
+  &:active {
+    background-color: rgb(173, 173, 173);
+  }
 
-    &--active{
-        background-color: rgb(129, 129, 129);   
-    }
+  &--active {
+    background-color: rgb(129, 129, 129);
+  }
 }
 
-
-.enter{
-    width: 15rem;
+.enter {
+  width: 15rem;
 }
 
-.backspace{
-    width: 15rem;
+.backspace {
+  width: 15rem;
 }

@@ -29,6 +29,11 @@ const Game = (props) => {
   const [text23, setText23] = useState("");
   const [text24, setText24] = useState("");
   const [text25, setText25] = useState("");
+  const [text26, setText26] = useState("");
+  const [text27, setText27] = useState("");
+  const [text28, setText28] = useState("");
+  const [text29, setText29] = useState("");
+  const [text30, setText30] = useState("");
   const [counter, setCounter] = useState(1);
   const { word } = props;
 
@@ -40,6 +45,18 @@ const Game = (props) => {
   let allGreen3 = false;
   let isNewRow4 = false;
   let allGreen4 = false;
+  let isNewRow5 = false;
+  let allGreen5 = false;
+
+  // Reset Button Refreshes PAge
+  const handleReset = () => {
+    window.location.reload(false);
+  };
+
+  // OnScreen KeyBoard Buttons fill each grid with corresponding letter pressed
+  // Counter determines which grid is being filled
+  // --active is added to the KeyBoard's classname changing the Bg color
+  // Conditional statemennts used to control and restrict grid filling and coloring
 
   const handleClick = (event) => {
     if (counter === 1) {
@@ -105,119 +122,156 @@ const Game = (props) => {
       event.target.className = "key key--active";
     }
     if (
-        classModifier6 === "--correct-place" &&
-        classModifier7 === "--correct-place" &&
-        classModifier8 === "--correct-place" &&
-        classModifier9 === "--correct-place" &&
-        classModifier10 === "--correct-place"
-      ) {
-        allGreen2 = true;
-      }
-      if (counter >= 11 && allGreen2 === false) {
-        isNewRow2 = true;
-      }
-      if (counter === 11 && isNewRow2 && allGreen2 === false) {
-        setText11(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 12 && isNewRow2 && allGreen2 === false) {
-        setText12(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 13 && isNewRow2 && allGreen2 === false) {
-        setText13(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 14 && isNewRow2 && allGreen2 === false) {
-        setText14(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 15 && isNewRow2 && allGreen2 === false) {
-        setText15(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (
-        classModifier11 === "--correct-place" &&
-        classModifier12 === "--correct-place" &&
-        classModifier13 === "--correct-place" &&
-        classModifier14 === "--correct-place" &&
-        classModifier15 === "--correct-place"
-      ) {
-        allGreen3 = true;
-      }
-      if (counter >= 16 && allGreen3 === false) {
-        isNewRow3 = true;
-      }
-      if (counter === 16 && isNewRow3 && allGreen3 === false) {
-        setText16(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 17 && isNewRow3 && allGreen3 === false) {
-        setText17(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 18 && isNewRow3 && allGreen3 === false) {
-        setText18(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 19 && isNewRow3 && allGreen3 === false) {
-        setText19(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (counter === 20 && isNewRow3 && allGreen3 === false) {
-        setText20(event.target.innerHTML);
-        setCounter(counter + 1);
-        event.target.className = "key key--active";
-      }
-      if (
-          classModifier16 === "--correct-place" &&
-          classModifier17 === "--correct-place" &&
-          classModifier18 === "--correct-place" &&
-          classModifier19 === "--correct-place" &&
-          classModifier20 === "--correct-place"
-        ) {
-          allGreen4 = true;
-        }
-        if (counter >= 21 && allGreen4 === false) {
-          isNewRow4 = true;
-        }
-        if (counter === 21 && isNewRow4 && allGreen4 === false) {
-          setText21(event.target.innerHTML);
-          setCounter(counter + 1);
-          event.target.className = "key key--active";
-        }
-        if (counter === 22 && isNewRow4 && allGreen4 === false) {
-          setText22(event.target.innerHTML);
-          setCounter(counter + 1);
-          event.target.className = "key key--active";
-        }
-        if (counter === 23 && isNewRow4 && allGreen4 === false) {
-          setText23(event.target.innerHTML);
-          setCounter(counter + 1);
-          event.target.className = "key key--active";
-        }
-        if (counter === 24 && isNewRow4 && allGreen4 === false) {
-          setText24(event.target.innerHTML);
-          setCounter(counter + 1);
-          event.target.className = "key key--active";
-        }
-        if (counter === 25 && isNewRow4 && allGreen4 === false) {
-          setText25(event.target.innerHTML);
-          setCounter(counter + 1);
-          event.target.className = "key key--active";
-        }
-  
-  
+      classModifier6 === "--correct-place" &&
+      classModifier7 === "--correct-place" &&
+      classModifier8 === "--correct-place" &&
+      classModifier9 === "--correct-place" &&
+      classModifier10 === "--correct-place"
+    ) {
+      allGreen2 = true;
+    }
+    if (counter >= 11 && allGreen2 === false) {
+      isNewRow2 = true;
+    }
+    if (counter === 11 && isNewRow2 && allGreen2 === false) {
+      setText11(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 12 && isNewRow2 && allGreen2 === false) {
+      setText12(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 13 && isNewRow2 && allGreen2 === false) {
+      setText13(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 14 && isNewRow2 && allGreen2 === false) {
+      setText14(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 15 && isNewRow2 && allGreen2 === false) {
+      setText15(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (
+      classModifier11 === "--correct-place" &&
+      classModifier12 === "--correct-place" &&
+      classModifier13 === "--correct-place" &&
+      classModifier14 === "--correct-place" &&
+      classModifier15 === "--correct-place"
+    ) {
+      allGreen3 = true;
+    }
+    if (counter >= 16 && allGreen3 === false) {
+      isNewRow3 = true;
+    }
+    if (counter === 16 && isNewRow3 && allGreen3 === false) {
+      setText16(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 17 && isNewRow3 && allGreen3 === false) {
+      setText17(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 18 && isNewRow3 && allGreen3 === false) {
+      setText18(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 19 && isNewRow3 && allGreen3 === false) {
+      setText19(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 20 && isNewRow3 && allGreen3 === false) {
+      setText20(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (
+      classModifier16 === "--correct-place" &&
+      classModifier17 === "--correct-place" &&
+      classModifier18 === "--correct-place" &&
+      classModifier19 === "--correct-place" &&
+      classModifier20 === "--correct-place"
+    ) {
+      allGreen4 = true;
+    }
+    if (counter >= 21 && allGreen4 === false) {
+      isNewRow4 = true;
+    }
+    if (counter === 21 && isNewRow4 && allGreen4 === false) {
+      setText21(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 22 && isNewRow4 && allGreen4 === false) {
+      setText22(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 23 && isNewRow4 && allGreen4 === false) {
+      setText23(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 24 && isNewRow4 && allGreen4 === false) {
+      setText24(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 25 && isNewRow4 && allGreen4 === false) {
+      setText25(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (
+      classModifier21 === "--correct-place" &&
+      classModifier22 === "--correct-place" &&
+      classModifier23 === "--correct-place" &&
+      classModifier24 === "--correct-place" &&
+      classModifier25 === "--correct-place"
+    ) {
+      allGreen5 = true;
+    }
+    if (counter >= 26 && allGreen5 === false) {
+      isNewRow5 = true;
+    }
+    if (counter === 26 && isNewRow5 && allGreen5 === false) {
+      setText26(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 27 && isNewRow5 && allGreen5 === false) {
+      setText27(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 28 && isNewRow5 && allGreen5 === false) {
+      setText28(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 29 && isNewRow5 && allGreen5 === false) {
+      setText29(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
+    if (counter === 30 && isNewRow5 && allGreen5 === false) {
+      setText30(event.target.innerHTML);
+      setCounter(counter + 1);
+      event.target.className = "key key--active";
+    }
   };
+
+  // ClassModifiers correspoding to the grid are used to determine grid color for answer given
 
   let wordArr = word.toUpperCase().split("");
   console.log(wordArr);
@@ -447,6 +501,50 @@ const Game = (props) => {
     classModifier25 = "--incorrect-letter";
   } else classModifier25 = "";
 
+  let classModifier26 = "";
+  if (text26 === wordArr[0] && text30.length === 1) {
+    classModifier26 = "--correct-place";
+  } else if (wordArr.includes(text26) && text30.length === 1) {
+    classModifier26 = "--correct-letter";
+  } else if (text26 != wordArr[0] && text30.length === 1) {
+    classModifier26 = "--incorrect-letter";
+  } else classModifier26 = "";
+
+  let classModifier27 = "";
+  if (text27 === wordArr[1] && text30.length === 1) {
+    classModifier27 = "--correct-place";
+  } else if (wordArr.includes(text27) && text30.length === 1) {
+    classModifier27 = "--correct-letter";
+  } else if (text27 != wordArr[1] && text30.length === 1) {
+    classModifier27 = "--incorrect-letter";
+  } else classModifier27 = "";
+
+  let classModifier28 = "";
+  if (text28 === wordArr[2] && text30.length === 1) {
+    classModifier28 = "--correct-place";
+  } else if (wordArr.includes(text28) && text30.length === 1) {
+    classModifier28 = "--correct-letter";
+  } else if (text28 != wordArr[2] && text30.length === 1) {
+    classModifier28 = "--incorrect-letter";
+  } else classModifier28 = "";
+
+  let classModifier29 = "";
+  if (text29 === wordArr[3] && text30.length === 1) {
+    classModifier29 = "--correct-place";
+  } else if (wordArr.includes(text29) && text30.length === 1) {
+    classModifier29 = "--correct-letter";
+  } else if (text29 != wordArr[3] && text30.length === 1) {
+    classModifier29 = "--incorrect-letter";
+  } else classModifier29 = "";
+
+  let classModifier30 = "";
+  if (text30 === wordArr[4] && text30.length === 1) {
+    classModifier30 = "--correct-place";
+  } else if (wordArr.includes(text30) && text30.length === 1) {
+    classModifier30 = "--correct-letter";
+  } else if (text30 != wordArr[4] && text30.length === 1) {
+    classModifier30 = "--incorrect-letter";
+  } else classModifier30 = "";
 
   return (
     <div className="game">
@@ -502,11 +600,20 @@ const Game = (props) => {
           classModifier23={classModifier23}
           classModifier24={classModifier24}
           classModifier25={classModifier25}
-
+          text26={text26}
+          text27={text27}
+          text28={text28}
+          text29={text29}
+          text30={text30}
+          classModifier26={classModifier26}
+          classModifier27={classModifier27}
+          classModifier28={classModifier28}
+          classModifier29={classModifier29}
+          classModifier30={classModifier30}
         />
       </div>
       <div className="game__keyboard">
-        <KeyBoard handleClick={handleClick} />
+        <KeyBoard handleClick={handleClick} handleReset={handleReset} />
       </div>
     </div>
   );
