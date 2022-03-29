@@ -38,7 +38,7 @@
   width: 15rem;
 }
 
-.submit{
+.submit {
   width: 23rem;
   height: 23rem;
   border-radius: 50%;
@@ -50,13 +50,12 @@
   left: 75%;
   font-size: 5rem;
 
-  &::after{
+  &::after {
     visibility: hidden;
   }
 }
 
-.none{
+.none {
   position: absolute;
   visibility: hidden;
 }
-

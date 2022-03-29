@@ -4,7 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import Tile from "../../components/Tiles/Tiles";
 import Win from "../Win/Win";
 import "./Game.scss";
-import useSound from 'use-sound';
+import useSound from "use-sound";
 import winSound from "../../assets/data/win-sound.wav";
 import lossSound from "../../assets/data/loss-sound.wav";
 import GameOver from "../GameOver/GameOver";
@@ -48,7 +48,6 @@ const Game = (props) => {
   const [timerOff, setTimerOff] = useState(false);
   const { word } = props;
 
-
   let isNewRow1 = false;
   let isNewRow2 = false;
   let isNewRow3 = false;
@@ -59,17 +58,15 @@ const Game = (props) => {
   let allGreen3 = false;
   let allGreen4 = false;
   let allGreen5 = false;
-  
-  // timer 
+
+  // timer
   useEffect(() => {
     timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
   }, [timer]);
 
-  if(timer <=0 ){
+  if (timer <= 0) {
     window.location.reload(false);
   }
-
-  
 
   // Reset Button Refreshes PAge
   const handleReset = () => {
@@ -77,30 +74,22 @@ const Game = (props) => {
   };
 
   const handleSubmit = (event) => {
-      if(!allGreen1){
-        event.target.className = "none"
-      }
-    handleClick()
-};
+    if (!allGreen1) {
+      event.target.className = "none";
+    }
+    handleClick();
+  };
 
- const toggleWin = () => {
-        setIsCorrect(!isCorrect);
-        setTimerOff(true)
-  }
+  const toggleWin = () => {
+    setIsCorrect(!isCorrect);
+    setTimerOff(true);
+  };
   const toggleGameOver = () => {
     setIsNotCorrect(!isNotCorrect);
-}
+  };
 
-  const [winSoundOn] = useSound(
-    winSound,
-    { volume: 0.25 }
-  );
-  const [lossSoundOn] = useSound(
-    lossSound,
-    { volume: 0.25 }
-  );
-  
-  
+  const [winSoundOn] = useSound(winSound, { volume: 0.25 });
+  const [lossSoundOn] = useSound(lossSound, { volume: 0.25 });
 
   // OnScreen KeyBoard Buttons fill each grid with corresponding letter pressed
   // Counter determines which grid is being filled
@@ -318,19 +307,15 @@ const Game = (props) => {
       setCounter(counter + 1);
       event.target.className = "key key--active";
     }
-    if(allGreen1 || allGreen2 || allGreen3 || allGreen4 || allGreen5 ){
-        toggleWin()
-        
-    } else if(counter >= 30 && !allGreen5 ){
-        toggleGameOver()
+    if (allGreen1 || allGreen2 || allGreen3 || allGreen4 || allGreen5) {
+      toggleWin();
+    } else if (counter >= 30 && !allGreen5) {
+      toggleGameOver();
     } else {
-        setIsCorrect(false)
-        setIsNotCorrect(false)
+      setIsCorrect(false);
+      setIsNotCorrect(false);
     }
   };
-
-  
-
 
   // ClassModifiers correspoding to the grid are used to determine grid color for answer given
   let wordArr = word.toUpperCase().split("");
@@ -340,22 +325,22 @@ const Game = (props) => {
     classModifier1 = "--correct-place";
   } else if (wordArr.includes(text1) && text5.length === 1) {
     classModifier1 = "--correct-letter";
-  } else if (text1 != wordArr[1] && text5.length === 1) {
+  } else if (text1 !== wordArr[1] && text5.length === 1) {
     classModifier1 = "--incorrect-letter";
   } else classModifier1 = "";
 
-//   if(classModifier1 === "--correct-place" || classModifier2 === "--correct-place" || classModifier3 === "--correct-place" || classModifier4 === "--correct-place" || classModifier5 === "--correct-place"){
-//     setIsCorrect(true);
-//   }  else {
-//     setIsCorrect(false)
-//   }
+  //   if(classModifier1 === "--correct-place" || classModifier2 === "--correct-place" || classModifier3 === "--correct-place" || classModifier4 === "--correct-place" || classModifier5 === "--correct-place"){
+  //     setIsCorrect(true);
+  //   }  else {
+  //     setIsCorrect(false)
+  //   }
 
   let classModifier2 = "";
   if (text2 === wordArr[1] && text5.length === 1) {
     classModifier2 = "--correct-place";
   } else if (wordArr.includes(text2) && text5.length === 1) {
     classModifier2 = "--correct-letter";
-  } else if (text2 != wordArr[1] && text5.length === 1) {
+  } else if (text2 !== wordArr[1] && text5.length === 1) {
     classModifier2 = "--incorrect-letter";
   } else classModifier2 = "";
 
@@ -364,7 +349,7 @@ const Game = (props) => {
     classModifier3 = "--correct-place";
   } else if (wordArr.includes(text3) && text5.length === 1) {
     classModifier3 = "--correct-letter";
-  } else if (text3 != wordArr[2] && text5.length === 1) {
+  } else if (text3 !== wordArr[2] && text5.length === 1) {
     classModifier3 = "--incorrect-letter";
   } else classModifier3 = "";
 
@@ -373,7 +358,7 @@ const Game = (props) => {
     classModifier4 = "--correct-place";
   } else if (wordArr.includes(text4) && text5.length === 1) {
     classModifier4 = "--correct-letter";
-  } else if (text4 != wordArr[3] && text5.length === 1) {
+  } else if (text4 !== wordArr[3] && text5.length === 1) {
     classModifier4 = "--incorrect-letter";
   } else classModifier4 = "";
 
@@ -382,7 +367,7 @@ const Game = (props) => {
     classModifier5 = "--correct-place";
   } else if (wordArr.includes(text5) && text5.length === 1) {
     classModifier5 = "--correct-letter";
-  } else if (text5 != wordArr[4] && text5.length === 1) {
+  } else if (text5 !== wordArr[4] && text5.length === 1) {
     classModifier5 = "--incorrect-letter";
   } else classModifier5 = "";
 
@@ -391,7 +376,7 @@ const Game = (props) => {
     classModifier6 = "--correct-place";
   } else if (wordArr.includes(text6) && text10.length === 1) {
     classModifier6 = "--correct-letter";
-  } else if (text6 != wordArr[0] && text10.length === 1) {
+  } else if (text6 !== wordArr[0] && text10.length === 1) {
     classModifier6 = "--incorrect-letter";
   } else classModifier6 = "";
 
@@ -400,7 +385,7 @@ const Game = (props) => {
     classModifier7 = "--correct-place";
   } else if (wordArr.includes(text7) && text10.length === 1) {
     classModifier7 = "--correct-letter";
-  } else if (text7 != wordArr[1] && text10.length === 1) {
+  } else if (text7 !== wordArr[1] && text10.length === 1) {
     classModifier7 = "--incorrect-letter";
   } else classModifier7 = "";
 
@@ -409,7 +394,7 @@ const Game = (props) => {
     classModifier8 = "--correct-place";
   } else if (wordArr.includes(text8) && text10.length === 1) {
     classModifier8 = "--correct-letter";
-  } else if (text8 != wordArr[2] && text10.length === 1) {
+  } else if (text8 !== wordArr[2] && text10.length === 1) {
     classModifier8 = "--incorrect-letter";
   } else classModifier8 = "";
 
@@ -418,7 +403,7 @@ const Game = (props) => {
     classModifier9 = "--correct-place";
   } else if (wordArr.includes(text9) && text10.length === 1) {
     classModifier9 = "--correct-letter";
-  } else if (text9 != wordArr[3] && text10.length === 1) {
+  } else if (text9 !== wordArr[3] && text10.length === 1) {
     classModifier9 = "--incorrect-letter";
   } else classModifier9 = "";
 
@@ -427,7 +412,7 @@ const Game = (props) => {
     classModifier10 = "--correct-place";
   } else if (wordArr.includes(text10) && text10.length === 1) {
     classModifier10 = "--correct-letter";
-  } else if (text10 != wordArr[4] && text10.length === 1) {
+  } else if (text10 !== wordArr[4] && text10.length === 1) {
     classModifier10 = "--incorrect-letter";
   } else classModifier10 = "";
 
@@ -436,7 +421,7 @@ const Game = (props) => {
     classModifier11 = "--correct-place";
   } else if (wordArr.includes(text11) && text15.length === 1) {
     classModifier11 = "--correct-letter";
-  } else if (text11 != wordArr[0] && text15.length === 1) {
+  } else if (text11 !== wordArr[0] && text15.length === 1) {
     classModifier11 = "--incorrect-letter";
   } else classModifier11 = "";
 
@@ -445,7 +430,7 @@ const Game = (props) => {
     classModifier12 = "--correct-place";
   } else if (wordArr.includes(text12) && text15.length === 1) {
     classModifier12 = "--correct-letter";
-  } else if (text12 != wordArr[1] && text15.length === 1) {
+  } else if (text12 !== wordArr[1] && text15.length === 1) {
     classModifier12 = "--incorrect-letter";
   } else classModifier12 = "";
 
@@ -454,7 +439,7 @@ const Game = (props) => {
     classModifier13 = "--correct-place";
   } else if (wordArr.includes(text13) && text15.length === 1) {
     classModifier13 = "--correct-letter";
-  } else if (text13 != wordArr[2] && text15.length === 1) {
+  } else if (text13 !== wordArr[2] && text15.length === 1) {
     classModifier13 = "--incorrect-letter";
   } else classModifier13 = "";
 
@@ -463,7 +448,7 @@ const Game = (props) => {
     classModifier14 = "--correct-place";
   } else if (wordArr.includes(text14) && text15.length === 1) {
     classModifier14 = "--correct-letter";
-  } else if (text14 != wordArr[3] && text15.length === 1) {
+  } else if (text14 !== wordArr[3] && text15.length === 1) {
     classModifier14 = "--incorrect-letter";
   } else classModifier14 = "";
 
@@ -472,7 +457,7 @@ const Game = (props) => {
     classModifier15 = "--correct-place";
   } else if (wordArr.includes(text15) && text15.length === 1) {
     classModifier15 = "--correct-letter";
-  } else if (text15 != wordArr[4] && text15.length === 1) {
+  } else if (text15 !== wordArr[4] && text15.length === 1) {
     classModifier15 = "--incorrect-letter";
   } else classModifier15 = "";
 
@@ -481,7 +466,7 @@ const Game = (props) => {
     classModifier16 = "--correct-place";
   } else if (wordArr.includes(text16) && text20.length === 1) {
     classModifier16 = "--correct-letter";
-  } else if (text16 != wordArr[0] && text20.length === 1) {
+  } else if (text16 !== wordArr[0] && text20.length === 1) {
     classModifier16 = "--incorrect-letter";
   } else classModifier16 = "";
 
@@ -490,7 +475,7 @@ const Game = (props) => {
     classModifier17 = "--correct-place";
   } else if (wordArr.includes(text17) && text20.length === 1) {
     classModifier17 = "--correct-letter";
-  } else if (text17 != wordArr[1] && text20.length === 1) {
+  } else if (text17 !== wordArr[1] && text20.length === 1) {
     classModifier17 = "--incorrect-letter";
   } else classModifier17 = "";
 
@@ -499,7 +484,7 @@ const Game = (props) => {
     classModifier18 = "--correct-place";
   } else if (wordArr.includes(text18) && text20.length === 1) {
     classModifier18 = "--correct-letter";
-  } else if (text18 != wordArr[2] && text20.length === 1) {
+  } else if (text18 !== wordArr[2] && text20.length === 1) {
     classModifier18 = "--incorrect-letter";
   } else classModifier18 = "";
 
@@ -508,7 +493,7 @@ const Game = (props) => {
     classModifier19 = "--correct-place";
   } else if (wordArr.includes(text19) && text20.length === 1) {
     classModifier19 = "--correct-letter";
-  } else if (text19 != wordArr[3] && text20.length === 1) {
+  } else if (text19 !== wordArr[3] && text20.length === 1) {
     classModifier19 = "--incorrect-letter";
   } else classModifier19 = "";
 
@@ -517,7 +502,7 @@ const Game = (props) => {
     classModifier20 = "--correct-place";
   } else if (wordArr.includes(text20) && text20.length === 1) {
     classModifier20 = "--correct-letter";
-  } else if (text20 != wordArr[4] && text20.length === 1) {
+  } else if (text20 !== wordArr[4] && text20.length === 1) {
     classModifier20 = "--incorrect-letter";
   } else classModifier20 = "";
 
@@ -526,7 +511,7 @@ const Game = (props) => {
     classModifier21 = "--correct-place";
   } else if (wordArr.includes(text21) && text25.length === 1) {
     classModifier21 = "--correct-letter";
-  } else if (text21 != wordArr[0] && text25.length === 1) {
+  } else if (text21 !== wordArr[0] && text25.length === 1) {
     classModifier21 = "--incorrect-letter";
   } else classModifier21 = "";
 
@@ -535,7 +520,7 @@ const Game = (props) => {
     classModifier22 = "--correct-place";
   } else if (wordArr.includes(text22) && text25.length === 1) {
     classModifier22 = "--correct-letter";
-  } else if (text22 != wordArr[1] && text25.length === 1) {
+  } else if (text22 !== wordArr[1] && text25.length === 1) {
     classModifier22 = "--incorrect-letter";
   } else classModifier22 = "";
 
@@ -544,7 +529,7 @@ const Game = (props) => {
     classModifier23 = "--correct-place";
   } else if (wordArr.includes(text23) && text25.length === 1) {
     classModifier23 = "--correct-letter";
-  } else if (text23 != wordArr[2] && text25.length === 1) {
+  } else if (text23 !== wordArr[2] && text25.length === 1) {
     classModifier23 = "--incorrect-letter";
   } else classModifier23 = "";
 
@@ -553,7 +538,7 @@ const Game = (props) => {
     classModifier24 = "--correct-place";
   } else if (wordArr.includes(text24) && text25.length === 1) {
     classModifier24 = "--correct-letter";
-  } else if (text24 != wordArr[3] && text25.length === 1) {
+  } else if (text24 !== wordArr[3] && text25.length === 1) {
     classModifier24 = "--incorrect-letter";
   } else classModifier24 = "";
 
@@ -562,7 +547,7 @@ const Game = (props) => {
     classModifier25 = "--correct-place";
   } else if (wordArr.includes(text25) && text25.length === 1) {
     classModifier25 = "--correct-letter";
-  } else if (text25 != wordArr[4] && text25.length === 1) {
+  } else if (text25 !== wordArr[4] && text25.length === 1) {
     classModifier25 = "--incorrect-letter";
   } else classModifier25 = "";
 
@@ -571,7 +556,7 @@ const Game = (props) => {
     classModifier26 = "--correct-place";
   } else if (wordArr.includes(text26) && text30.length === 1) {
     classModifier26 = "--correct-letter";
-  } else if (text26 != wordArr[0] && text30.length === 1) {
+  } else if (text26 !== wordArr[0] && text30.length === 1) {
     classModifier26 = "--incorrect-letter";
   } else classModifier26 = "";
 
@@ -580,7 +565,7 @@ const Game = (props) => {
     classModifier27 = "--correct-place";
   } else if (wordArr.includes(text27) && text30.length === 1) {
     classModifier27 = "--correct-letter";
-  } else if (text27 != wordArr[1] && text30.length === 1) {
+  } else if (text27 !== wordArr[1] && text30.length === 1) {
     classModifier27 = "--incorrect-letter";
   } else classModifier27 = "";
 
@@ -589,7 +574,7 @@ const Game = (props) => {
     classModifier28 = "--correct-place";
   } else if (wordArr.includes(text28) && text30.length === 1) {
     classModifier28 = "--correct-letter";
-  } else if (text28 != wordArr[2] && text30.length === 1) {
+  } else if (text28 !== wordArr[2] && text30.length === 1) {
     classModifier28 = "--incorrect-letter";
   } else classModifier28 = "";
 
@@ -598,7 +583,7 @@ const Game = (props) => {
     classModifier29 = "--correct-place";
   } else if (wordArr.includes(text29) && text30.length === 1) {
     classModifier29 = "--correct-letter";
-  } else if (text29 != wordArr[3] && text30.length === 1) {
+  } else if (text29 !== wordArr[3] && text30.length === 1) {
     classModifier29 = "--incorrect-letter";
   } else classModifier29 = "";
 
@@ -607,16 +592,24 @@ const Game = (props) => {
     classModifier30 = "--correct-place";
   } else if (wordArr.includes(text30) && text30.length === 1) {
     classModifier30 = "--correct-letter";
-  } else if (text30 != wordArr[4] && text30.length === 1) {
+  } else if (text30 !== wordArr[4] && text30.length === 1) {
     classModifier30 = "--incorrect-letter";
   } else classModifier30 = "";
 
   return (
     <div className="game">
-        {isCorrect && <Win sound={winSoundOn()} word={word} toggleWin={toggleWin}/>}
-        {isNotCorrect && <GameOver sound={lossSoundOn()} word={word} toggleGameOver={toggleGameOver}/>}
-        <Nav /> 
-        <Timer timerOff={timerOff} />
+      {isCorrect && (
+        <Win sound={winSoundOn()} word={word} toggleWin={toggleWin} />
+      )}
+      {isNotCorrect && (
+        <GameOver
+          sound={lossSoundOn()}
+          word={word}
+          toggleGameOver={toggleGameOver}
+        />
+      )}
+      <Nav />
+      <Timer timerOff={timerOff} />
       <div className="gameboard">
         <Tile
           text1={text1}
@@ -682,7 +675,11 @@ const Game = (props) => {
         />
       </div>
       <div className="game__keyboard">
-        <KeyBoard handleClick={handleClick} handleReset={handleReset} handleSubmit={handleSubmit}/>
+        <KeyBoard
+          handleClick={handleClick}
+          handleReset={handleReset}
+          handleSubmit={handleSubmit}
+        />
       </div>
     </div>
   );

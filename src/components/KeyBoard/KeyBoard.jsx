@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./KeyBoard.scss";
 
 const KeyBoard = (props) => {
@@ -10,7 +10,7 @@ const KeyBoard = (props) => {
         <button id="submit" onClick={handleSubmit} className="key submit">
           SUBMIT
         </button>
-        </div>
+      </div>
       <div className="keyboard__row">
         <button id="q" onClick={handleClick} className={`key`}>
           Q
