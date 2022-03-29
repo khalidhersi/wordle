@@ -4,6 +4,10 @@ import Nav from "../../components/Nav/Nav";
 import Tile from "../../components/Tiles/Tiles";
 import Win from "../Win/Win";
 import "./Game.scss";
+import useSound from 'use-sound';
+import winSound from "../../assets/data/win-sound.wav";
+import lossSound from "../../assets/data/loss-sound.wav";
+import GameOver from "../GameOver/GameOver";
 
 const Game = (props) => {
   const [text1, setText1] = useState("");
@@ -38,6 +42,7 @@ const Game = (props) => {
   const [text30, setText30] = useState("");
   const [counter, setCounter] = useState(1);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isNotCorrect, setIsNotCorrect] = useState(false);
   const { word } = props;
 
 
@@ -57,10 +62,36 @@ const Game = (props) => {
     window.location.reload(false);
   };
 
+  const handleSubmit = (event) => {
+      if(!allGreen1){
+        event.target.className = "none"
+      }
+    handleClick()
+};
+
+ const toggleWin = () => {
+        setIsCorrect(!isCorrect);
+  }
+  const toggleGameOver = () => {
+    setIsNotCorrect(!isNotCorrect);
+}
+
+  const [winSoundOn] = useSound(
+    winSound,
+    { volume: 0.25 }
+  );
+  const [lossSoundOn] = useSound(
+    lossSound,
+    { volume: 0.25 }
+  );
+  
+  
+
   // OnScreen KeyBoard Buttons fill each grid with corresponding letter pressed
   // Counter determines which grid is being filled
   // --active is added to the KeyBoard's classname changing the Bg color
   // Conditional statemennts used to control and restrict grid filling and coloring
+
   const handleClick = (event) => {
     if (counter === 1) {
       setText1(event.target.innerHTML);
@@ -272,10 +303,19 @@ const Game = (props) => {
       setCounter(counter + 1);
       event.target.className = "key key--active";
     }
-    if(allGreen1 === true || allGreen2 || allGreen3 || allGreen4 || allGreen5){
-        setIsCorrect(true);
-      }
+    if(allGreen1 || allGreen2 || allGreen3 || allGreen4 || allGreen5 ){
+        toggleWin()
+        
+    } else if(counter >= 30 && !allGreen5 ){
+        toggleGameOver()
+    } else {
+        setIsCorrect(false)
+        setIsNotCorrect(false)
+    }
   };
+
+  
+
 
   // ClassModifiers correspoding to the grid are used to determine grid color for answer given
   let wordArr = word.toUpperCase().split("");
@@ -288,6 +328,12 @@ const Game = (props) => {
   } else if (text1 != wordArr[1] && text5.length === 1) {
     classModifier1 = "--incorrect-letter";
   } else classModifier1 = "";
+
+//   if(classModifier1 === "--correct-place" || classModifier2 === "--correct-place" || classModifier3 === "--correct-place" || classModifier4 === "--correct-place" || classModifier5 === "--correct-place"){
+//     setIsCorrect(true);
+//   }  else {
+//     setIsCorrect(false)
+//   }
 
   let classModifier2 = "";
   if (text2 === wordArr[1] && text5.length === 1) {
@@ -552,9 +598,9 @@ const Game = (props) => {
 
   return (
     <div className="game">
-        {isCorrect && <Win word={word}/>}
-        {/* <GameOver word={words.word} */}
-         <Nav />
+        {isCorrect && <Win sound={winSoundOn()} word={word} toggleWin={toggleWin}/>}
+        {isNotCorrect && <GameOver sound={lossSoundOn()} word={word} toggleGameOver={toggleGameOver}/>}
+        <Nav />
       <div className="gameboard">
         <Tile
           text1={text1}
@@ -620,7 +666,7 @@ const Game = (props) => {
         />
       </div>
       <div className="game__keyboard">
-        <KeyBoard handleClick={handleClick} handleReset={handleReset} />
+        <KeyBoard handleClick={handleClick} handleReset={handleReset} handleSubmit={handleSubmit}/>
       </div>
     </div>
   );

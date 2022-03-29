@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import "./KeyBoard.scss";
 
 const KeyBoard = (props) => {
-  const { handleClick, handleReset } = props;
+  const { handleClick, handleReset, handleSubmit } = props;
 
   return (
     <div className="keyboard">
+      <div className="keyboard__row">
+        <button id="submit" onClick={handleSubmit} className="key submit">
+          SUBMIT
+        </button>
+        </div>
       <div className="keyboard__row">
         <button id="q" onClick={handleClick} className={`key`}>
           Q

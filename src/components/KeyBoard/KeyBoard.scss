@@ -37,3 +37,25 @@
 .backspace {
   width: 15rem;
 }
+
+.submit{
+  width: 23rem;
+  height: 23rem;
+  border-radius: 50%;
+  background-color: rgb(197, 34, 34);
+  border: hidden;
+  color: white;position: absolute;
+  top: 25rem;
+  left: 75%;
+  font-size: 5rem;
+
+  &::after{
+    visibility: hidden;
+  }
+}
+
+.none{
+  position: absolute;
+  visibility: hidden;
+}
+
