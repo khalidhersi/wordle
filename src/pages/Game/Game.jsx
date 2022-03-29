@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import KeyBoard from "../../components/KeyBoard/KeyBoard";
 import Nav from "../../components/Nav/Nav";
 import Tile from "../../components/Tiles/Tiles";
@@ -8,6 +8,7 @@ import useSound from 'use-sound';
 import winSound from "../../assets/data/win-sound.wav";
 import lossSound from "../../assets/data/loss-sound.wav";
 import GameOver from "../GameOver/GameOver";
+import Timer from "../../components/Timer/Timer";
 
 const Game = (props) => {
   const [text1, setText1] = useState("");
@@ -41,8 +42,10 @@ const Game = (props) => {
   const [text29, setText29] = useState("");
   const [text30, setText30] = useState("");
   const [counter, setCounter] = useState(1);
+  const [timer, setTimer] = useState(120);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isNotCorrect, setIsNotCorrect] = useState(false);
+  const [timerOff, setTimerOff] = useState(false);
   const { word } = props;
 
 
@@ -56,6 +59,17 @@ const Game = (props) => {
   let allGreen3 = false;
   let allGreen4 = false;
   let allGreen5 = false;
+  
+  // timer 
+  useEffect(() => {
+    timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
+  }, [timer]);
+
+  if(timer <=0 ){
+    window.location.reload(false);
+  }
+
+  
 
   // Reset Button Refreshes PAge
   const handleReset = () => {
@@ -71,6 +85,7 @@ const Game = (props) => {
 
  const toggleWin = () => {
         setIsCorrect(!isCorrect);
+        setTimerOff(true)
   }
   const toggleGameOver = () => {
     setIsNotCorrect(!isNotCorrect);
@@ -600,7 +615,8 @@ const Game = (props) => {
     <div className="game">
         {isCorrect && <Win sound={winSoundOn()} word={word} toggleWin={toggleWin}/>}
         {isNotCorrect && <GameOver sound={lossSoundOn()} word={word} toggleGameOver={toggleGameOver}/>}
-        <Nav />
+        <Nav /> 
+        <Timer timerOff={timerOff} />
       <div className="gameboard">
         <Tile
           text1={text1}

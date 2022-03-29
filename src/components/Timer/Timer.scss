@@ -1,0 +1,15 @@
+.timer{
+    text-align: center;
+    
+    &__text{
+        font-size: 20rem;
+        color: white;
+        position: absolute;
+        top: 23.5rem;
+        right: 70%;
+    }
+}
+
+.timer__off{
+    visibility: hidden;
+}
