@@ -7,12 +7,13 @@ import Win from "./pages/Win/Win";
 import GameOver from "./pages/GameOver/GameOver";
 
 function App() {
+
   return (
     <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Game word={words.word}/>} />
-          <Route path="/win" element={<Win word={words.word}/>} />
+          <Route path="/win" element={<Win word={words.word}/>}/>
           <Route path="/GameOver" element={<GameOver word={words.word}/>} />
         </Routes>
       </div>

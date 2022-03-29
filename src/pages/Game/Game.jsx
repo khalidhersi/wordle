@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import KeyBoard from "../../components/KeyBoard/KeyBoard";
 import Nav from "../../components/Nav/Nav";
 import Tile from "../../components/Tiles/Tiles";
+import Win from "../Win/Win";
 import "./Game.scss";
 
 const Game = (props) => {
@@ -36,17 +37,19 @@ const Game = (props) => {
   const [text29, setText29] = useState("");
   const [text30, setText30] = useState("");
   const [counter, setCounter] = useState(1);
+  const [isCorrect, setIsCorrect] = useState(false);
   const { word } = props;
 
+
   let isNewRow1 = false;
-  let allGreen1 = false;
   let isNewRow2 = false;
-  let allGreen2 = false;
   let isNewRow3 = false;
-  let allGreen3 = false;
   let isNewRow4 = false;
-  let allGreen4 = false;
   let isNewRow5 = false;
+  let allGreen1 = false;
+  let allGreen2 = false;
+  let allGreen3 = false;
+  let allGreen4 = false;
   let allGreen5 = false;
 
   // Reset Button Refreshes PAge
@@ -58,7 +61,6 @@ const Game = (props) => {
   // Counter determines which grid is being filled
   // --active is added to the KeyBoard's classname changing the Bg color
   // Conditional statemennts used to control and restrict grid filling and coloring
-
   const handleClick = (event) => {
     if (counter === 1) {
       setText1(event.target.innerHTML);
@@ -270,12 +272,13 @@ const Game = (props) => {
       setCounter(counter + 1);
       event.target.className = "key key--active";
     }
+    if(allGreen1 === true || allGreen2 || allGreen3 || allGreen4 || allGreen5){
+        setIsCorrect(true);
+      }
   };
 
   // ClassModifiers correspoding to the grid are used to determine grid color for answer given
-
   let wordArr = word.toUpperCase().split("");
-  console.log(wordArr);
 
   let classModifier1 = "";
   if (text1 === wordArr[0] && text5.length === 1) {
@@ -549,6 +552,8 @@ const Game = (props) => {
 
   return (
     <div className="game">
+        {isCorrect && <Win word={word}/>}
+        {/* <GameOver word={words.word} */}
          <Nav />
       <div className="gameboard">
         <Tile
