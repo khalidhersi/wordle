@@ -24,10 +24,13 @@ Future Plnas
 Wordle Preview
 -------------------
 ## Game View 🗃
-![mobile-screenshot](https://user-images.githubusercontent.com/84135155/150382540-5993b160-aa7c-4a14-967a-b29c8f615967.png )
+![game-screenshot](https://user-images.githubusercontent.com/84135155/160838441-ae736139-dada-436f-b1eb-8f5500047acc.png)
+
 
 ## Mobile View 🗃
-![mobile-screenshot](https://user-images.githubusercontent.com/84135155/150382540-5993b160-aa7c-4a14-967a-b29c8f615967.png )
+![gameover-screenshot](https://user-images.githubusercontent.com/84135155/160838460-e1ff964e-6090-4c75-90cb-0274102e2a94.png)
 
 ## Desktop View 🗃
-![fullsize-screenshot](https://user-images.githubusercontent.com/84135155/150382594-c9f35a2c-ddac-4cd0-b94f-bc8ebb2561a1.png)
+![win-screenshot](https://user-images.githubusercontent.com/84135155/160838490-f2d55b50-b8c8-4843-acad-4d5025c8395e.png)
+
+
