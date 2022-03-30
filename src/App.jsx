@@ -14,15 +14,15 @@ function App() {
       <div className="App">
         <Routes>
           <Route
-            path="/"
+            path="wordle/"
             element={<Game word={words.word[randomWordIndex]} />}
           />
           <Route
-            path="/win"
+            path="wordle/win"
             element={<Win word={words.word[randomWordIndex]} />}
           />
           <Route
-            path="/GameOver"
+            path="wordle/GameOver"
             element={<GameOver word={words.word[randomWordIndex]} />}
           />
         </Routes>
