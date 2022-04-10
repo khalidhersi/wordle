@@ -7,6 +7,7 @@
   align-items: center;
   gap: 0.8rem;
   margin-top: 3rem;
+  margin-left: 2rem;
   &__row {
     display: flex;
     justify-content: center;
@@ -58,4 +59,138 @@
 .none {
   position: absolute;
   visibility: hidden;
+}
+
+@media screen and (min-width: 300px) {
+  .keyboard{
+    gap: 0.7rem;
+    margin-left: 1rem;
+    margin-top: 0rem;
+    &__row{
+      gap: 0.6rem;
+    }
+  }
+  .key {
+    width: 3rem;
+    height: 3.5rem;
+    font-size: 2.7rem;
+}
+.enter {
+  width: 9rem;
+}
+
+.backspace {
+  width: 5rem;
+}
+.submit {
+  position: absolute;
+  top: 68.5rem;
+  left: 15%;
+  width: 15rem;
+  border-radius: 3rem;
+}
+}
+
+
+@media screen and (min-width: 450px) {
+  .keyboard{
+    gap: 0.3rem;
+    margin-top: 0rem;
+    &__row{
+      gap: 0.3rem;
+    }
+  }
+  .key {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2.5rem;
+}
+.enter {
+  width: 9rem;
+}
+
+.backspace {
+  width: 8rem;
+}
+}
+
+@media screen and (min-width: 500px) {
+  
+  .key {
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+}
+.enter {
+  width: 12rem;
+}
+
+.backspace {
+  width: 8rem;
+}
+}
+
+
+@media screen and (min-width: 700px) {
+  .keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    &__row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+    }
+  }
+  
+  .key {
+    width: 6rem;
+    height: 6rem;
+    font-weight: bold;
+    font-size: 3rem;
+  
+    &:active {
+      background-color: rgb(173, 173, 173);
+    }
+  
+    &--active {
+      background-color: rgb(129, 129, 129);
+    }
+  }
+  
+  .enter {
+    width: 13rem;
+  }
+  
+  .backspace {
+    width: 13rem;
+  }
+  
+  .submit {
+    width: 23rem;
+    height: 23rem;
+    border-radius: 50%;
+    background-color: rgb(197, 34, 34);
+    border: hidden;
+    color: white;
+    position: absolute;
+    top: 25rem;
+    left: 75%;
+    font-size: 5rem;
+  
+    &::after {
+      visibility: hidden;
+    }
+  }
+  
+  .none {
+    position: absolute;
+    visibility: hidden;
+  }
+  
 }

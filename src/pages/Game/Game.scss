@@ -38,25 +38,100 @@
     background-color: $color-grey;
   }
 }
+.game__keyboard {
+  
+}
 
-// @media screen and (max-width: 991px) {
-//   .gameboard {
-//     margin-top: 8%;
-//     gap: 0.5rem;
+@media screen and (min-width: 300px) {
+  .game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  .gameboard {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  
+    &__row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    &__tile {
+      height: 6rem;
+      width: 6rem;
+      border: 4px solid rgba(124, 124, 124, 0.199);
+      font-size: 4rem;
+      text-align: center;
+      font-weight: bold;
+      line-height: 4.5rem;
+      display: flex;
+      justify-content: center;
+    }
+    .--correct-place {
+      background-color: $color-green;
+    }
+  
+    .--correct-letter {
+      background-color: $color-yellow;
+    }
+  
+    .--incorrect-letter {
+      background-color: $color-grey;
+    }
+  }
+  .game__keyboard {
+      margin-top: 5rem;
+  }
+}
+  }
 
-//     &__row {
-//       gap: 0.5rem;
-//     }
-//     &__tile {
-//       height: 13rem;
-//       width: 13rem;
-//       font-size: 10rem;
-//       line-height: 10.5rem;
-//       border: 7px solid rgba(124, 124, 124, 0.399);
-//     }
-//   }
+@media screen and (min-width: 750px) {
+.gameboard {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 
-//   .keyboard {
-//     margin-top: 10%;
-//   }
-// }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__tile {
+    height: 8rem;
+    width: 8rem;
+    border: 4px solid rgba(124, 124, 124, 0.199);
+    font-size: 6rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 6.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .--correct-place {
+    background-color: $color-green;
+  }
+
+  .--correct-letter {
+    background-color: $color-yellow;
+  }
+
+  .--incorrect-letter {
+    background-color: $color-grey;
+  }
+}
+.game__keyboard {
+  
+}
+}
